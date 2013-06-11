@@ -1,0 +1,7 @@
+; Problem 3: Find the kth element of a list. The first element in the list is number 1.
+
+(defn element-at [xs k]
+  (loop [n k ls xs]
+    (if (= 0 n)
+      (first ls)
+      (recur (dec n) (rest ls)))))

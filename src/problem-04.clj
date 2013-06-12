@@ -5,3 +5,4 @@
     (if (empty? ls)
       0
       (recur (inc acc) (rest ls)))))
+

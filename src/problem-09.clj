@@ -1,7 +1,8 @@
 ; Problem 09: Pack consecutive duplicate list elements into sublists.
 
-(defn pack [xs]
-  (loop [acc [] cca xs]
-    (cond (empty? cca) acc
-          (= (last acc) (first cca)) (recur (conj (first cca) acc) (rest cca))
-          true (recur (conj acc '()) (rest cca)))))
+; Recursion using loop-recur:
+(defn pack[xs]
+  (loop [acc [] xs xs]
+    (cond (empty? xs) acc
+          true (recur (conj acc (take-while (fn [x] (= x (first xs))) xs))
+                      (drop-while (fn [x] (= x (first xs))) xs)))))

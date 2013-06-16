@@ -1,4 +1,4 @@
-; Problem 10: Modified run-length encoding.
+; Problem 11: Modified run-length encoding.
 
 ; Problem 09's solution:
 (defn pack [xs]
@@ -9,6 +9,9 @@
       (list front) 
       (cons front (pack back)))))
 
-; Recursion with loop:
-(defn encode [xs] (map (fn [x] (if (list? xs) (list (count xs) (first xs))
-                                   (first xs))) (pack xs)))
+; Map:
+(defn encode-modified [xs] (map (fn [x] (if (= 1 (count x)) (first x) (list (count x) (first x)))) (pack xs)))
+
+; Direct recursion:
+
+; Loop/recur:
